@@ -1,0 +1,16 @@
+add jar /home/hive/regan/hiveudaf/hive-1.0-SNAPSHOT.jar;
+drop temporary function map_test;
+create temporary function map_test as 'com.mimi.hive.ExplodeMap';
+select map_test(addr) as(a,b) from addr;
+
+drop temporary function sum_test;
+create temporary function sum_test as 'com.mimi.hive.SimpleSum';
+
+
+select sum_test(name,score) from student;
+
+
+
+select sum_test(name,2.0) from student;
+select maximum(score) from student;
+
